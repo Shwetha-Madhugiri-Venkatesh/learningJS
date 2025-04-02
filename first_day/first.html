@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .firstdiv{
+            width:400px;
+            height:auto;
+            display:flex;
+            background-color: gainsboro;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+        #img{
+            width:300px;
+            height:300px;
+            display: block;
+            border:2px solid;
+            box-shadow: 4px 4px 4px gray;
+        }
+        #imagebtn,#image1btn{
+            width:60%;
+            height:30px;
+            background-color: skyblue;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">HI</h1>
+    <p id="para">Happy learning</p>
+    <button is="button" onclick='document.getElementById("para").innerHTML="Learn JavaScript"'>Click me</button>
+    <div class="firstdiv">
+        <button id="imagebtn">next image</button>
+        <img id="img" src="img.jpg" alt="image">
+        <button id="image1btn" onclick="myFunction()">previous image</button>
+        <p id="div-para" style="display: none;">This is a taggled photo</p>
+    </div>
+    <p id="res">5+10=</p>
+    <!-- <button onclick="document.write(5+10)">add</button>it overrides the whole page, so not recomended -->
+     <button id="addition" onclick="add()">add</button>
+     <button onclick="window.print()">Print the current page</button>
+    <script src="first.js"></script>
+</body>
+</html>
