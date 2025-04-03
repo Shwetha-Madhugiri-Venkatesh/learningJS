@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Day</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <p id="res"></p>
+    <button onclick="this.innerHTML=Date()">the time is</button>
+    <button id="addition">5+9</button><br>
+    <script>
+        let x = -50;
+        x<<=5;
+        document.getElementById("res").innerHTML=x;
+        let y=10;
+        y&&=5;
+        console.log(y);//5
+        y=0;
+        y&&=5;
+        console.log(y);//0
+        y=5;
+        y&&=0;
+        console.log(y);//0
+        y=0;
+        y&&=0;
+        console.log(y);//0
+        y=10;
+        y||=5;
+        console.log(y);//10
+        y=10;
+        y||=0;
+        console.log(y);//10
+        y=0;
+        y||=5;
+        console.log(y);//5
+        y=0;
+        y||=0;
+        console.log(y);//0
+        y=10;
+        y??=5;
+        console.log(y);//10
+        let z;
+        z??=0;
+        console.log(z);//0
+
+        /*
+        if we want to assign a value when it is 0, go for ||
+        if we want to assign a value when it is any number, go for &&
+        if we want to assign a value when it is null or undefined for ??
+
+        observations:
+        &&: 1.assigns the value only if LHS is non-zero
+            2.if LHS is ("0","null","undefined","false","NaN","") do nothing
+        ||: 1.does the opposite of &&
+        ??: 1.only assigns when LHS is null or undefined
+            2.if other values are there, keeps the value
+        */
+        function add(a,b){
+            return a+b;
+        }
+        document.getElementById("addition").onclick= function(){
+            this.innerHTML=add(5,9);
+        }
+        document.write("<br>"+add);
+
+        const firstObject={
+            name:"Shwetha",
+            age:22,
+            Specialization:"java & python",
+        };
+        document.write("<br>"+"\n"+firstObject.name+" "+firstObject.age+" "+firstObject.Specialization);
+        const shwetha = new Object();
+        shwetha.name="Shwetha";
+        const manu={};
+        manu.name="manu";
+        document.write("<br>"+"\n"+shwetha["name"]+" "+manu.name);
+        manu.method= function() {
+            return this.name;
+        }
+        document.write("<br>"+"\n"+manu.method());
+        const p = firstObject;
+        p.age=10;
+        document.write("<br>"+"\n"+firstObject.age);
+        let q="age";
+        document.write("<br>"+"\n"+firstObject.age);
+        delete firstObject.Specialization;
+        document.write("<br>"+"\n"+firstObject.Specialization);
+        const nestedObject = {
+            name:"Shalini",
+            age:30,
+            innerObject:{
+                obj1:"obj1",
+                obj2:"obj2",
+                obj3:"obj3",
+            }
+        }
+        document.write("<br>"+"\n"+nestedObject.innerObject.obj1);
+        let data="";
+        for(let x in firstObject){
+            data+="\n"+firstObject[x]+" ";
+        }
+        document.write("<br>"+data);
+        const array=Object.values(firstObject);
+        document.write("<br>"+"\n"+array);
+        let text="";
+        for(let [property,value] of Object.entries(firstObject)){
+            text+=property+":"+value+"<br>";
+        }
+        document.write("<br>"+text);
+        let myString = JSON.stringify(firstObject);
+        document.write("<br>"+myString);
+
+        function myConstructor(name,age,marks){
+            this.name="Shwetha";
+            this.age=23;
+            this.marks=100;
+        }
+        const obj1 = new myConstructor("manu",21,99);
+        document.write("<br>"+obj1.name+" "+obj1.age+" "+obj1.marks);
+        myConstructor.prototype.subject="English";
+        document.write("<br>"+obj1.name+" "+obj1.age+" "+obj1.marks+" "+obj1.subject);
+        myConstructor.prototype.add1=function(p1,p2){
+            return p1+p2;
+        }
+        document.write("<br>"+obj1.name+" "+obj1.age+" "+obj1.marks+" "+obj1.add1(5,10));
+        let str = "myCode";
+        document.write("<br>"+str.length);
+        document.write("<br>"+"It\'s a nice movie");
+        let str1 = new String("myCode");
+        document.write("<br>"+typeof str);
+        document.write("<br>"+typeof str1+"<br>");
+        document.write("<br>"+str==str1+" "+"<br>");
+        document.write("<br>"+str === str1+" "+"<br>");
+        let str2 = new String("myCode");
+        document.write("<br>"+(str1==str2)+" "+(str1===str2));
+
+    </script>
+</body>
+</html>
