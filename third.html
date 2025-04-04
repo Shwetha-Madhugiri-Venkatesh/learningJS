@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // JavaScript string length
+        let str = "Shwetha";
+        document.write(str.length + "<br>");
+
+        //Extracting the character from string
+        document.write("<br>" + "<br>" + "<br>" + str.charAt(2) + "<br>");
+        document.write(str.charAt(-2) + "<br>");//nothing printed
+        document.write(str.at(3) + "<br>");
+        document.write(str.at(-3) + "<br>");
+        document.write(str.charCodeAt(3) + "<br>");
+        document.write(str.charCodeAt(-3) + "<br>");//nan value
+        document.write(str[4] + "<br>");
+        document.write(str[-4] + "<br>");//undefined
+        document.write(str.charAt(7) + "<br>");//prints nothing
+        document.write(str.at(7) + "<br>");//undefined
+        document.write(str.charCodeAt(7) + "<br>");//nan
+        document.write(str[7] + "<br>");//undefined
+
+        //Attempting to overwrite the character position value
+        //str.charAt(1)="A";
+        document.writeln("<br>" + "<br>" + "<br>" + str + "<br>");
+        //str.at(2)="B";
+        document.writeln(str + "<br>");
+        //str.charCodeAt(3)="C";
+        document.writeln(str + "<br>");
+        str[4] = "D";//does not throw any error, but it will not work
+        document.writeln(str + "<br>");
+
+        //Extracting the parts of strings
+        //1.slice():
+        document.writeln("<br>" + "<br>" + "<br>" + str.slice(1, 3) + "<br>");//second parameter in exclusive
+        document.write(str.slice(2) + "<br>");
+        document.write(str.slice(-3) + "<br>");
+        document.write(str.slice(-7, -2) + "<br>");
+        document.write(str.at(-7));
+
+        //2.substring():
+        document.writeln("<br>" + "<br>" + "<br>" + str.substring(1, 3) + "<br>");//second parameter in exclusive
+        document.write(str.substring(2) + "<br>");
+        document.write(str.substring(-2) + "<br>");//number less than 0 are treated as 0
+        document.write(str.substring(-7, -3) + "<br>");//both are treated as 0
+        console.log(str.substring(0, 0));//prints nothing
+        document.write(str.at(-7));
+
+        //3.substr()
+        document.writeln("<br>" + "<br>" + "<br>" + str.substr(1, 3) + "<br>");//second parameter is inclusive i.e, it is length of string
+        document.writeln(str.substr(2) + "<br>");
+        document.write(str.substr(-2) + "<br>");//upto -2 it will slice
+        document.write(str.substr(-7, -3) + "<br>");
+        document.write(str.at(-7));
+
+        //converting string to uppercase
+        document.write("<br>" + "<br>" + "<br>" + str.toUpperCase() + "<br>");
+
+        //converting string to lowercase
+        document.write("<br>" + "<br>" + "<br>" + str.toLowerCase() + "<br>");
+
+        //concatinating the strings
+        //1. using concat()
+        document.write("<br>" + "<br>" + "<br>" + str.concat(" ", "Manjula") + "<br>");
+        document.write(str.concat(String(9)) + "<br>")//does not automatically converts the num and concat, so forced to convert into string and then add
+
+        //2. using +
+        document.write("<br>" + "<br>" + "<br>" + str + " " + "Manjula" + "<br>");
+        document.write(str + 8 + "<br>");//automatically converts the num to string
+        document.write(str + "<br>");//both does not modify the str
+
+        //trim()
+        let str1 = "   Manu  ";
+        document.write("<br>" + "<br>" + "<br>" + str1.trim() + "<br>");
+        document.write(str1.trimStart() + "<br>");
+        document.write(str1.trimEnd() + "<br>");
+
+        //String padding
+        let num = 9;
+        let str3 = num.toString();
+        document.write("<br>" + "<br>" + "<br>" + str3.padStart(5, "hi") + "<br>");
+        document.write(str3.padEnd(4, "S") + "<br>");//it does not overwrite
+        document.write(str3.padStart(5, "hi").padEnd(10, "S") + "<br>")//both applied
+
+        //String repeat()
+        document.write("<br>" + "<br>" + "<br>" + str.repeat(5) + "<br>");//does not modify the str, returns new string 
+
+        //Replacing string content
+        document.write("<br>" + "<br>" + "<br>" + str.replace("Sh", "ma") + "<br>");//does not modify str, returns new string and replace for first match and case sensitive
+        // document.write(str.replace("Hi Shwetha","sh"));
+
+        //To match all the strings with case-insensitive use /i flag
+        document.write(str.replace(/sh/i, "shw") + "<br>");
+        let str4 = "Hi Shwetha Hi";
+        document.write(str4.replace(/hi/ig, "Hello") + "<br>");
+
+        let regex = /hi/i;
+        let match = regex.test("Hi Shwetha Hi");
+        document.write(match + "<br>");
+
+        match = regex.exec("Hi Shwetha Hi");
+        document.write(match + "<br>");
+
+        // let match;
+        // while (match !== null) {
+        //     match = regex.exec("Hi Shwetha Hi");
+        //     console.log(`Found '${match[0]}' at index ${match.index}`);
+        // }
+
+        //replaceAll()
+        let text = "I love cats. Cats are very easy to love. Cats are very popular.";
+        document.write(text.replaceAll("Cats", "Dogs") + "<br>");
+        document.write(text.replaceAll(/cats/ig, "Dogs") + "<br>");
+        //document.write(text.replaceAll(/cats/i,"Dogs")+"<br>");//should use /g or else it will throw typeError
+
+        document.write("<br>" + "<br>" + "<br>")
+        const array = str.split("");
+        for (let i = 0; i < array.length; i++) {
+            document.write(array[i] + "<br>");
+        }
+
+        //indexOf()
+        document.write("<br>" + "<br>" + "<br>" + text.indexOf("Cats") + "<br>");
+        document.write(text.indexOf("Shwetha") + "<br>");
+        document.write(text.indexOf("Cats", 14) + "<br>");
+
+        //lastIndexOf()
+        document.write("<br>" + "<br>" + "<br>" + text.lastIndexOf("Cats") + "<br>");
+        document.write(text.lastIndexOf("Shwetha") + "<br>");
+        document.write(text.lastIndexOf("Cats", 24) + "<br>");
+
+        //Search()
+        document.write("<br>" + "<br>" + "<br>" + text.search("Cats") + "<br>");
+        document.writeln(text.search(/Cats/) + "<br>");
+        document.write(text.search("Shwetha") + "<br>");
+
+        //match()
+        const myArr = text.match("cats");
+        document.write("<br>" + "<br>" + myArr + "<br>");//returns array
+        document.write(typeof (text.match("cats")) + "<br>");
+        document.write(typeof myArr + "<br>");
+        document.write(myArr.length + "<br>");
+
+        let myArr1 = text.match(/cats/ig);
+        document.write(myArr1 + "<br>");
+        document.write(myArr1.length + "<br>");
+
+        //matchAll()
+        document.write("<br>" + "<br>" + text.matchAll("Cats") + "<br>");
+        document.write(text.matchAll(/cats/ig) + "<br>");//must use /g or else it will throw error
+
+        //startsWith()
+        document.write("<br>" + "<br>" + text.startsWith("I ") + "<br>");
+        document.write(text.startsWith("Cats") + "<br>");
+
+        document.write(text.startsWith("cats", 7) + "<br>");
+        document.write(text.startsWith("cats", 8) + "<br>");
+
+        //endsWith()
+        document.write("<br>" + "<br>" + text.endsWith("popular.") + "<br>");
+        document.write(text.endsWith(text.endsWith("cats", 5)) + "<br>");
+
+        document.write(text.endsWith("cat", 10) + "<br>");
+
+        //Template Strings
+        let template = `twinkle twinkle little star,
+        how I wonder what you are,
+        up above the world so high,
+        like a diamond in the sky.`;
+        document.write("<br>" + "<br>" + template + "<br>");
+
+        //Interpolation
+        let name = "shwetha";
+        let fullName = `${name} Venkatesh`;
+        document.write("<br>" + "<br>" + fullName + "<br>");
+
+        //Substitution
+        let pi = 3.142;
+        let r = 10;
+        document.write("<br>" + "<br>" + `the area of the circle is: ${pi * r * r}`);
+
+        //HTML Templates
+        let intro = "I am Shwetha";
+        document.write("<br>" + "<br>" + `<h1>${intro}<h1>`);
+
+        //Numbers
+        let x = 999999999999999;
+        let y = 9999999999999999;
+        document.write("<br>" + "<br>" + "<br>" + x + "<br>");
+        document.write(y + "<br>");//max numbers for mantissa is 52 bits i.e, 15 digits
+
+        document.write((0.2 + 0.1) + "<br>");//not accurate
+
+        //Numeric strings
+        let u = "10";
+        let v = "20";
+        document.write("<br>" + "<br>" + `${u / v}/  ${u - v}/   ${u * v}/   ${u + v}` + "<br>");//only for + it will not work
+
+        //NaN 
+        document.write("<br>" + "<br>" + 100 / "Shwetha" + "<br>");
+        document.write(100 / "10" + "<br>");
+        let c = 100 / "Shwetha";
+        document.write(isNaN(c) + "<br>");
+        document.write(`${NaN + 5}" "${NaN + "5"}` + "<br>");
+        document.write(typeof NaN);
+
+        //Infinity
+        let num2 = 2;
+        let text1 = "";
+        while (num2 !== Infinity) {
+            num2 = num2 * num2;
+            text1 += num2 + "<br>";
+        }
+        document.write("<br>" + "<br>" + text1);
+        document.write(2 / 0 + "<br>");
+        document.write(typeof Infinity + "<br>");
+
+        let b = 0xAA;
+        document.write("<br>" + "<br>" + b + "<br>");
+
+        let num4 = 32;
+        document.write(`${num4.toString(36)}<br>Duotrigesimal: ${num4.toString(32)}<br>Hexadecimal: ${num4.toString(16)}<br>Duodecimal: ${num4.toString(12)}<br>Decimal: ${num4.toString(10)}<br>Octal: ${num4.toString(8)}<br>Binary: ${num4.toString(2)}<br>`);
+
+        let h = 32;
+        let k = new Number(32);
+        let l = new Number(32);
+
+        document.write(`${h == k} ${h === k}` + "<br>");
+        document.write(`${k == l} ${k === l}` + "<br>");
+
+        let m = BigInt(272897287982991892737237287387);
+        let n = 272897287982991892737237287387n;
+        document.write("<br>" + "<br>" + m + "<br>");
+        document.write(n + "<br>");
+        document.write(typeof m + "<br>");
+        //document.write(m*5);//can not operate with number
+        document.write(n * m + "<br>");
+        //document.write(m>>>=m);//can not use >>>
+        let j = 5n;
+        document.write(Number(j) + 5 + "<br>");
+        let hex = 0x20000000000003n;
+        let oct = 0o400000000000000003n;
+        let bin = 0b100000000000000000000000000000000000000000000000000011n;
+        document.write(`${hex}/${oct}/${bin}` + "<br>");
+        document.write(9007199254740992 === 9007199254740993 + "<br>");
+        document.write("<br>" + Number.MAX_SAFE_INTEGER + "<br>");
+        document.write(Number.isInteger(10) + "<br>");
+        document.write(Number.isInteger(10.5) + "<br>");
+        document.write(Number.isSafeInteger(10) + "<br>");
+        document.writeln(Number.isSafeInteger(897828236763876387267637373237) + "<br>");
+
+
+    </script>
+</body>
+
+</html>
