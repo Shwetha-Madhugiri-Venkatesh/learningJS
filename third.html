@@ -31,11 +31,11 @@
         document.write(str[7] + "<br>");//undefined
 
         //Attempting to overwrite the character position value
-        //str.charAt(1)="A";
+        // str.charAt(1)="A";
         document.writeln("<br>" + "<br>" + "<br>" + str + "<br>");
-        //str.at(2)="B";
+        // str.at(2)="B";
         document.writeln(str + "<br>");
-        //str.charCodeAt(3)="C";
+        // str.charCodeAt(3)="C";
         document.writeln(str + "<br>");
         str[4] = "D";//does not throw any error, but it will not work
         document.writeln(str + "<br>");
@@ -45,13 +45,13 @@
         document.writeln("<br>" + "<br>" + "<br>" + str.slice(1, 3) + "<br>");//second parameter in exclusive
         document.write(str.slice(2) + "<br>");
         document.write(str.slice(-3) + "<br>");
-        document.write(str.slice(-7, -2) + "<br>");
+        document.write(str.slice(-7, -3) + "<br>");
         document.write(str.at(-7));
 
         //2.substring():
         document.writeln("<br>" + "<br>" + "<br>" + str.substring(1, 3) + "<br>");//second parameter in exclusive
         document.write(str.substring(2) + "<br>");
-        document.write(str.substring(-2) + "<br>");//number less than 0 are treated as 0
+        document.write(str.substring(-3) + "<br>");//number less than 0 are treated as 0
         document.write(str.substring(-7, -3) + "<br>");//both are treated as 0
         console.log(str.substring(0, 0));//prints nothing
         document.write(str.at(-7));
@@ -59,8 +59,8 @@
         //3.substr()
         document.writeln("<br>" + "<br>" + "<br>" + str.substr(1, 3) + "<br>");//second parameter is inclusive i.e, it is length of string
         document.writeln(str.substr(2) + "<br>");
-        document.write(str.substr(-2) + "<br>");//upto -2 it will slice
-        document.write(str.substr(-7, -3) + "<br>");
+        document.write(str.substr(-3) + "<br>");//upto -2 it will slice
+        document.write(str.substr(-7, 4) + "<br>");
         document.write(str.at(-7));
 
         //converting string to uppercase
@@ -191,7 +191,7 @@
 
         //HTML Templates
         let intro = "I am Shwetha";
-        document.write("<br>" + "<br>" + `<h1>${intro}<h1>`);
+        document.write("<br>" + "<br>" + `<h1>${intro}</h1>`);
 
         //Numbers
         let x = 999999999999999;
