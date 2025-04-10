@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Dates*/
+
+        //new date creation
+        let date1 = new Date();// returns today's date
+        document.writeln(date1+"<br/>");
+
+        let date2 = new Date("2003-04-19");//returns the specific date in IST
+        document.writeln(date2+"<br/>");
+
+        let date3 = new Date(2003,4,19,5,30,30,87989);//even though month is 4, the month count will start from 0, jan is 0
+        document.writeln(date3+"<br/>");
+        let date31=new Date(2003);//treated as milliseconds so jan 1 1970 us output
+        document.writeln(date31+"<br/>");
+        let date32 = new Date(2003, 4);
+        document.writeln(date32+"<br/>");
+        let date33=new Date(2003,4,19);
+        document.writeln(date33+"<br/>");
+        let date34 = new Date(2003,4,19,5);
+        document.writeln(date34+"<br/>");
+        let date35 = new Date(2003,4,19,5,30);
+        document.writeln(date35+"<br/>");
+        let date36 = new Date(2003,4,19,5,30,30);
+        document.writeln(date36+"<br/>");
+
+        let date4 = new Date(86400000*3);//returns the date from milliseconds from 1 jan 1970, so it should be 4 jan
+        document.writeln(date4+"<br/>");
+
+        document.writeln(date3.toString()+"<br/>");
+        document.writeln(date3.toISOString()+"<br/>");
+        document.writeln(date3.toUTCString()+"<br/>");
+        document.writeln(date3.toDateString()+"<br/>");
+
+        //Date Formats
+        let date5 = new Date("2003-04-19");//ISO Format
+        document.writeln(date5+"<br/>");
+        let date6 = new Date("04-19-2003")//Short date format
+        document.writeln(date6+"<br/>");
+        let date7 = new Date("APR 19 2003")//long date format
+        document.writeln(date7+"<br/>");
+        //ISO Format
+        let date8 = new Date("2003-04");//if we don't specify any of the parameter it will take the begining as value,here 1st of 4th month
+        document.writeln(date8+"<br/>");
+        let date9 = new Date("2003");
+        document.writeln(date9+"<br/>");
+
+        //Date with time
+        let date10 = new Date("2003-04-19T12:00:00Z");//ISO Format
+        document.writeln(date10+"<br/>");
+        let date11 = new Date("2003-04-19T12:00:00-05:30");//to concert to UTCS from ISO remove Z and add +HH:MM or -HH:MM
+        document.writeln(date11+"<br/>");
+        //UTCS is same as GMT
+
+        //Omitting T and Z
+        let date12 = new Date("2003-04-1912:00:00Z");
+        document.writeln(date12+"<br/>");
+        let date13 = new Date("2003-04-19T12:00:00");
+        document.writeln(date13+"hi"+"<br/>");
+
+        //Short date format
+        let date14 = new Date("19/04/2003");//invalid
+        document.writeln(date14+"<br/>");
+        let date15 = new Date("2003/04/19");//valid
+        document.writeln(date15+"<br/>");
+        let date16 = new Date("19-04-2003");//valid
+        document.writeln(date15+"<br/>");
+
+        //long date format
+        let date17 = new Date("jan 19 2003");
+        document.writeln(date17+"<br/>");
+        let date18 = new Date("JAN 19 2003");
+        document.writeln(date18+"<br/>");
+        let date19 = new Date("19 jan 2003");
+        document.writeln(date19+"<br/>");
+        let date20 = new Date("jan,19,2003");
+        document.writeln(date20+"<br/>");
+
+        //Date.parse(dateString) - converts into milliseconds
+        document.writeln(Date.parse("2003-04-19")+"<br/>");
+
+        //Date get methods 
+        document.writeln(date3+"<br/>");
+        document.writeln(date3.getFullYear()+"<br/>");
+        document.writeln(date3.getMonth()+"<br/>");
+        document.writeln(date3.getDay()+"<br/>");
+        document.writeln(date3.getMinutes()+"<br/>");
+        document.writeln(date3.getSeconds()+"<br/>");
+        document.writeln(date3.getMilliseconds()+"<br/>");
+        document.writeln(date3.getTime()+"<br/>");
+        document.writeln(date3.getHours()+"<br/>");
+        document.writeln(date3.getDate()+"<br/>");
+        document.writeln(date3.getTimezoneOffset()+"<br/>");
+
+        //Date set methods
+        date3.setFullYear(2005);
+        date5.setFullYear(2005,4,19);
+        document.writeln(date3+"<br/>");
+        document.writeln(date5+"<br/>");
+        date3.setDate(20);
+        document.writeln(date3+"<br/>");
+        date3.setDate(date3.getDate()+20);
+        document.writeln(date3+"<br/>");
+        date3.setMonth(10);
+        document.writeln(date3+"<br/>");
+        date3.setHours(5);
+        document.writeln(date3+"<br/>");
+        date3.setHours(6,30,30);
+        document.writeln(date3+"<br/>");
+        date3.setTime(5687689709808);
+        document.writeln(date3+"<br/>");
+        document.writeln("<br/><br/><br/>");
+        /*Math object*/
+
+        document.writeln(Math.PI+"<br/>");//Math properties are constants
+        let num1 = 5.567892;
+        document.writeln(Math.round(num1)+"<br/>");//to the nearest int
+        document.writeln(Math.ceil(num1)+"<br/>");//up to the nearest int
+        document.writeln(Math.floor(num1)+"<br/>");//down to the nearest int
+        document.writeln(Math.trunc(num1)+"<br/>");//gives the int part
+        document.writeln(Math.sign(4)+"<br/>");//1 for +
+        document.writeln(Math.sign(-4)+"<br/>");//-1 for -
+        document.writeln(Math.sign(0)+"<br/>");// 0 for 0
+        document.writeln(Math.pow(8,2)+"<br/>");//8*8
+        document.writeln(Math.sqrt(64)+"<br/>");//8
+        document.writeln(Math.abs(-10)+"<br/>");//10
+        document.writeln(Math.sin(180)+"<br/>");// in radians
+        document.writeln(Math.cos(180)+"<br/>");// in radians
+        const arr = [2,3,4,9];
+        document.writeln(Math.min.apply(null,arr)+"<br/>");
+        document.writeln(Math.max.apply(null,arr)+"<br/>");
+        document.writeln(Math.random()+"<br/>");//between 0 and 1,0 is inclusive but 1 is exclusive
+        document.writeln(Math.log(40)+"<br/>");
+        document.writeln(Math.log2(40)+"<br/>");
+        document.writeln(Math.log10(40)+"<br/>");
+        document.writeln("<br/><br/><br/>");
+
+        /*Math Randoms*/
+
+        //by combining math.floor and math.random we get random integers
+        document.writeln(Math.floor(Math.random()*10)+"<br/>");//0 to 9
+        document.writeln(Math.floor(Math.random()*100)+"<br/>");//0 to 99
+        document.writeln((Math.floor(Math.random()*10)+1)+"<br/>");//1 to 10
+        document.writeln((Math.floor(Math.random()*100)+1)+"<br/>");//1 to 100
+        document.writeln(Math.floor(Math.random()*11)+"<br/>");//0 to 10
+        document.writeln(Math.floor(Math.random()*101)+"<br/>");//0 to 100
+        //to make both inclusive ex, 1 and 10
+        //Math.floor(math.random(max-min))+min -----min is inclusive and max is exclusive
+        //Math.floor(math.random()*(max-min+1))+min ------both are inclusive
+        document.writeln((Math.floor(Math.random()*(10-1))+1)+"<br/>");//1 to 10 
+        document.writeln((Math.floor(Math.random()*(10-1)+1)+1)+"<br/>")//1 to 10 , both are inclusive
+        document.writeln("<br/><br/><br/>");
+
+        /*Booleans*/
+        //Boolean of any value is true
+        document.writeln(Boolean(2)+"<br/>");
+        document.writeln(Boolean(3.6)+"<br/>");
+        document.writeln(Boolean(-9)+"<br/>");
+        document.writeln(Boolean("false")+"<br/>");
+        document.writeln(Boolean(2+2-10)+"<br/>");
+
+        //but for not a value is false
+        document.writeln(Boolean(0)+"<br/>");
+        document.writeln(Boolean(undefined)+"<br/>");
+        document.writeln(Boolean(NaN)+"<br/>");
+        document.writeln(Boolean(Infinity)+"<br/>");//true
+        document.writeln(Boolean(-Infinity)+"<br/>");//true
+        document.writeln(Boolean(null)+"<br/>");
+        document.writeln(Boolean(-0)+"<br/>");
+        document.writeln(Boolean(false)+"<br/>");
+        document.writeln(Boolean("")+"<br/>");
+        document.writeln("<br/><br/><br/>");
+
+        /*Comparisions*/
+        let val1 = false;
+        let val2 = new Boolean(false);
+        document.writeln((val1==val2)+"<br/>");
+        document.writeln((val1===val2)+"<br/>");
+        let val3 = 3;
+        let val4 = 5;
+        document.writeln((val3!=val4)+"<br/>");
+        document.writeln((val3!==val4)+"<br/>");
+        document.writeln((val3>val4)+"<br/>");
+        document.writeln((val3<val4)+"<br/>");
+        document.writeln((val3>=val4)+"<br/>");
+        document.writeln((val3<=val4)+"<br/>");
+        document.writeln(((val1==val2)? true:false)+"<br/>");
+        //Nullish coalescing operator
+        let val5=null;
+        let val6=8;
+        let val7;
+        document.writeln((val5??val6)+"<br/>");
+        document.writeln((val6==val7)+"<br/>");
+        //Optional chaining opeartor
+        let obj = {place:"tumkur",marks:99};
+        document.writeln((obj?.name)+"<br/>");//undefined no error
+        document.writeln("<br/><br/><br/>");
+        /*if-else*/
+        let age = 18;
+        if(age<18){
+            document.writeln("Not eligible to drive"+"<br/>");
+        }else{
+            document.writeln("Eligible to drive"+"<br/>");
+        }
+
+        let num2 = 3,num3 = 4, num4=5;
+        if(num2>num3){
+            if(num2>num4){
+                document.writeln(num2+"<br/>");
+            }else{
+                if(num4>num3){
+                    document.writeln(num4+"<br/>");
+                }
+            }
+        }else{
+            if(num3>num4){
+                document.writeln(num3+"<br/>");
+            }
+        }
+        /*Switch case*/
+        let name="Shwetha";
+        switch(name){
+            case "shwetha":document.writeln(name+"<br/>");
+                            break;
+            case "Shwetha":document.writeln(name+"<br/>");
+                            break;
+            case "Shwetha":document.writeln(name+"hi"+"<br/>");//first case is output, multiple case match
+                            break;;
+            default: document.writeln("invalid"+"<br/>");
+        }
+
+        document.writeln("<br/><br/><br/>");
+        /*for loop*/
+        const arr1 = ["Shwetha", "is", "front-end","developer"];
+        let text="";
+        for(let i=0;i<arr1.length;i++){
+            text+=arr1[i]+" ";
+        }
+        document.writeln(text+"<br/>");
+
+        //omitting initialization
+        let i=0;
+        let text1="";
+        for(;i<arr1.length;i++){
+            text1+=arr1[i]+" ";
+        }
+        document.writeln(text1+"<br/>");
+
+        //omitting the condition
+        let text2="";
+        for(let i=0;;i++){
+            if(i<arr1.length){
+                text2+=arr1[i]+" ";
+            }else{
+                break;
+            }
+        }
+        document.writeln(text2+"<br/>");
+
+        //omitting incrementation
+        let text3="";
+        for(let i=0;i<arr1.length;){
+            text3+=arr1[i]+" ";
+            i++;
+        }
+        document.writeln(text3+"<br/>");
+        document.writeln("<br/><br/><br/>");
+
+        /*for-in loop*/
+        const obj1 = {name:"Shwetha",marks:100,subject:"Maths"};
+        let text4="";
+        for(let x in obj1){
+            text4+=obj1[x]+" ";
+        }
+        document.writeln(text4+"<br/>");
+
+        let text5="";
+        for(let x in arr1){
+            text5+=arr1[x]+" ";
+        }
+        document.writeln(text5+"<br/>");
+
+        let text6="";
+        arr1.forEach(myFunction);
+        function myFunction(index,value,array){
+            text6+=value+" ";
+        }
+        document.writeln(text6+"<br/>");
+
+        let j=0;
+        let text7="";
+        while(j<arr1.length){
+            text7+=arr1[j]+" ";
+            j++;
+        }
+        document.writeln(text7+"<br/>");
+</script>
+</body>
+</html>
