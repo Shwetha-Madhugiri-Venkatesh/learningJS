@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="color" onclick="javascript:void(document.body.style.backgroundColor='red');">click here to change color</button>
+   <script>
+        function numbers(){
+            let n=0;
+            return {
+                next: function(){
+                    n+=10;
+                    return {value:n ,done:false};//local anonymous object initiated
+                }
+            };
+        }
+        const Numbers = numbers();//anonymous object is returned
+        document.writeln(Numbers.next().value+"<br/><br/>");
+
+
+        let myNumbers={};
+        // document.writeln(myNumbers[Symbol.iterator]);
+        //making myNumbers iterable
+        myNumbers[Symbol.iterator] = function(){
+            let n=0;
+            return {
+                next:function(){
+                    let done = false;
+                    n+=10;
+                    if(n==100){
+                        done=true;
+                    }
+                    return {
+                        value:n,
+                        done:done,
+                    };
+                }
+            };
+        }//overwriting the method for iteration
+        for(let x in myNumbers){
+            document.writeln(x+"<br/>");
+        }
+        let text="";
+        for(let num of myNumbers){//here the traditional method for for of loop is overwrited. for each iteration, symbol.iterator get called automatically
+            text+=num+"<br/>";
+        }
+        document.writeln(text+"<br/>");
+
+
+        //manually calling iterator method
+        let iterator_call = myNumbers[Symbol.iterator]();
+        let res=iterator_call.next();
+        let text1="";
+        while(!res.done){
+            text1+=res.value;
+           res=iterator_call.next();
+        }
+        document.writeln(text1+"<br/>");
+
+        let set1 = new Set([1,2,3,4,5,5]);//no duplicates, internally [1,2,3,4,5]
+        let set2 = new Set();
+        set2.add(1);
+        set2.add(3);
+        for(let x of set1){
+            document.writeln(x+"<br/>");
+        }
+        document.writeln("set2:");
+        for(let y of set2){
+            document.writeln(y+"<br/>");
+        }
+
+        document.writeln(set1.has(1)+"<br/>"+set1.has(10)+"<br/>");
+
+        let text3="";
+        set1.forEach(function(value){
+            text3+=value;
+        });
+        document.writeln(text3+"<br/>");
+
+        let val = set2.values();
+        for(let z of val){
+        document.writeln(z+"<br/>");
+        }
+
+        let key = set2.keys();
+        for(let s of key){
+            document.writeln(s+"<br/>");
+        }
+
+        let entries = set2.entries();//(value,value)
+        for(let entry of entries){
+            document.writeln(entry+"<br/>");
+        }
+
+        //Maps
+
+        let map1 = new Map([["shwetha",100],["manu",90]]);
+        let map2 = new Map();
+        map2.set("manjula",200);
+        document.writeln(map2.size+"<br/>");
+        document.writeln(map1.get("shwetha")+"<br/>");
+        document.writeln(typeof map1+"<br/>");
+        //document.writeln(map2 instanceof Map+"<br/>");
+        document.writeln(map1.get("manu")+"<br/>");
+        map1.delete("manu");
+        document.writeln(map1.get("manu")+"<br/>");
+        document.writeln(map1.has("manu")+"<br/>");
+        let text2="";
+        
+        // map1.forEach(function(key,value)){
+        //     text2+=key+" : "+value;
+        // }
+        // document.writeln(text2+"<br/>");
+
+        for(let c of map1.entries()){
+            text2+=c+"<br/>";
+        }
+        document.writeln(text2+"<br/>");
+
+        let text4="";
+        for(let b of map1.keys()){
+            text4+=b+"<br/>";
+        }
+        document.writeln(text4+"<br/>");
+
+        for(let n of map1.values()){
+            text4+=n+"<br/>";
+        }
+        document.writeln(text4+"<br/>");
+
+        let obj1={name:"shwetha"};
+        let obj2={name:"manu"};
+        let map3 = new Map([[obj1,1],[obj2,2]]);
+        document.writeln(map3.get(obj1)+"<br/>");
+
+        let map4 = new Map([
+            {name:"Shwetha",marks:100},
+            {name:"manu",marks:90},
+            {name:"manjula",marks:20},
+            {name:"manikya",marks:10},
+        ]);
+
+        function groupby_func({marks}){
+            return marks>100?"above 100":"below 100";
+        }
+
+        const group = Map.groupBy(map4,groupby_func);
+
+        let text5="";
+        let text6="";
+        // for(let m of group.get("above 100")){
+        //     text5+=m.name+"<br/>";
+        // }
+        // for(let n of group.get("below 100")){
+        //     text6+=n.name+"<br/>";
+        // }
+        // document.writeln(text5+"<br/>");
+        // document.writeln(text6+"<br/>");
+
+        var v;
+        document.writeln(typeof 1+"<br/>");
+        document.writeln(typeof "shwetha"+"<br/>");
+        document.writeln(typeof obj1+"<br/>");
+        document.writeln(typeof null+"<br/>");
+        document.writeln(typeof undefined+"<br/>");
+        document.writeln(typeof v+"<br/>");
+        document.writeln(typeof map4+"<br/>");
+
+        document.writeln((null==undefined)+"<br/>");
+        document.writeln((null===undefined)+"<br/>");
+
+        document.writeln(typeof groupby_func+"<br/>");
+        let arr = new Array();
+        document.writeln(Array.isArray(arr)+"<br/>");
+        document.writeln(typeof arr+"<br/>");
+        //document.writeln(arr instanceof Array+"<br/>");
+
+        document.writeln({name:"shwetha",place:"bangalore"}.constructor+"<br/>");
+
+        //Type conversion
+
+        document.writeln(Number(null)+"<br/>");
+        document.writeln(parseFloat("12.99")+"<br/>");
+        document.writeln(parseInt("12.99")+"<br/>");
+        document.writeln(parseFloat("shwetha")+"<br/>");
+
+        let u = "10";
+        document.writeln(typeof u+"<br/>");
+        let p = +u;
+        document.writeln(typeof p+"<br/>");
+
+        let a = String(u);
+        document.writeln(typeof a+"<br/>");
+
+        
+        document.writeln( typeof (12.99).toString()+"<br/>");
+        document.writeln(typeof (String(2003-4-19))+"<br/>");
+
+        let names = {first:"Shwetha", last:"Madhugiri"};
+        let {first, last}= names;
+        document.writeln(first+"/"+last+"<br/>");
+        let {firstname,lastname,marks=100} = names;
+        document.writeln(first+"/"+last+"/"+marks+"<br/>");
+        let {first :stu_name}=names;
+        document.writeln(stu_name+"<br/>");
+
+
+        let str = "Madhugiri";
+        let [v1,v2,v3,v4]=str;
+        document.writeln(v1+" "+v2+" "+v3+"<br/>");
+        let arr1 = ["I", "am", "a","front","end","developer"];
+        let [val1,val2]=arr1;
+        document.writeln(val1+" "+val2+"<br/>");
+        let [va1,va2,,val3]=arr1;
+        document.writeln(val1+" "+val2+" "+val3+"<br/>");
+        let {[0]:value1,[1]:value2}=arr1;
+        document.writeln(value1+" "+value2+"<br/>");
+
+   </script>
+</body>
+</html>

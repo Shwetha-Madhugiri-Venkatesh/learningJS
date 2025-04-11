@@ -211,18 +211,23 @@
         }
 
         let num2 = 3,num3 = 4, num4=5;
+        // if(num2 > num3 && num2>num4) {
+        //     document.writeln(num2+"<br>")
+        // } else if (num3>num2 && num3 > num4) {
+        //     document.writeln(num3 +"<br>")
+        // } else {
+        //     document.writeln(num4 + "<br>")
+        // }
         if(num2>num3){
             if(num2>num4){
                 document.writeln(num2+"<br/>");
-            }else{
-                if(num4>num3){
+            } else {
                     document.writeln(num4+"<br/>");
-                }
             }
-        }else{
-            if(num3>num4){
-                document.writeln(num3+"<br/>");
-            }
+        } else if(num3>num4) {
+            document.writeln(num3 +"<br>")
+        } else {
+            document.writeln(num4+"<br>")
         }
         /*Switch case*/
         let name="Shwetha";
