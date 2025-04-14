@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Objects creation*/
+
+        //1.using object literal
+        const obj1 = {};
+        obj1.name="shwetha";
+        obj1.college = "KNSIT";
+        for(let x in obj1){
+            document.writeln(obj1[x]+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        //2.using new Object()
+        const obj2 = new Object();
+        obj2.cloth="Shirt";
+        obj2.fabric="cotton";
+        for(let x in obj2){
+            document.writeln(obj2[x]+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        //3.using constructor
+        function employee(name,age,department){
+            this.name = name;
+            this.age = age;
+            this.department=department;
+            this.country = "India";
+        }
+        const obj3 = new employee("shwetha",22,"front-end");
+        for(let x in obj3){
+            document.writeln(obj3[x]+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        /* Object methods*/
+
+        //General methods
+
+        //1.Object.assign(target,source)
+        const obj4 = {};
+        Object.assign(obj4,obj3);
+        for(let x in obj4){
+            document.writeln(obj4[x]+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        //2.Object.create(object)
+        const obj5 = Object.create(obj1);
+        for(let x in obj5){
+            document.writeln(obj5[x]+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        //3.Object.entries(object) returns array
+        const entry = Object.entries(obj2);
+        for(let x of entry){
+            document.writeln(x+" // ");
+        }
+        document.writeln("<br/><br/>");
+
+        //4.Object.keys(object) returns array
+        const key = Object.keys(obj2);
+        for(let x of key){
+            document.writeln(x+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        //5. Object.values(object) returns array
+        const value = Object.values(obj2);
+        for(let x of value){
+            document.writeln(x+" ");
+        }
+        document.writeln("<br/><br/>");
+
+        //6.Object.groupBy(object, callback)
+        const obj6 = [{name:"manu",dep:"back-end",age:22},
+        {name:"manu",dep:"back-end",age:60},
+        ];
+        function callback({age}){
+            return age<50?"below":"above";
+        }
+        const res = Object.groupBy(obj6,callback);
+        let text = "The employees below 50:<br/>";
+        for(let [x,y] of res.below.entries()){
+            text += y.name+" "+y.age+" "+y.dep+"<br/>";
+        }
+
+        text+="<br/>The employees above 50:<br/>";
+        for(let [x,y] of res.above.entries()){
+            text += y.name+" "+y.age+" "+y.dep+"<br/>";
+        }
+        document.writeln(text+"<br/>");
+
+        //Property management methods
+
+        //1.Object.defineProperties(object,descriptors)
+        const obj7 = {};
+        Object.defineProperties(obj7, {
+            phono:{
+                value:8698797908,
+                writable:false,
+            }
+        });
+        document.writeln(obj7.phono+"<br/>");
+
+        //2.Object.defineProperty(object,property,descriptor)
+        Object.defineProperty(obj7,"name",{value:"shwetha"});
+        document.writeln(obj7.name+"<br/>");
+
+        //3.Object.getOwnPropertyDescriptor(object,property)
+        let discription = Object.getOwnPropertyDescriptor(obj7,"name");
+        for(let x in discription){
+            document.writeln(x+"/");
+        }
+        document.writeln("<br/><br/>")
+
+        //4.Object.getOwnPropertyDescriptors(object)
+        let discriptions = Object.getOwnPropertyDescriptors(obj7);
+        for(let x in discriptions){
+            document.writeln(x+"/");
+        }
+        document.writeln("<br/><br/>")
+
+        //5.Object.getOwnPropertyNames(object)
+        let allProperty = Object.getOwnPropertyNames(obj7);
+        for(let x of allProperty){
+            document.writeln(x+"/");
+        }
+        document.writeln("<br/><br/>")
+
+        //6.Object.getPrototypeOf(object)
+        let proto = Object.getPrototypeOf(obj7);
+        document.writeln(proto);
+        for(let x in proto){
+            document.writeln(x+"/");
+        }//not printing
+
+        //Object Protection Methods
+        
+    </script>
+</body>
+</html>

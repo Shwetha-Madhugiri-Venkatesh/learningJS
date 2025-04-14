@@ -38,3 +38,8 @@ document.writeln(arr+"<br/>");
 //because of this overwrite problem we have toSpliced()
 document.writeln(arr4+"<br/>");
 document.writeln(arr4.toSpliced(2,1)+"<br/>");
+
+function message(){
+    return "hi";
+}
+export default message;

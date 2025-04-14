@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>enter the numerator:</p>
+    <input type="number" id="numerator" min="2" max="5" step="1">
+    <p>enter the denominator:</p>
+    <input type="number" id="denominator">
+    <button onclick="calculate()">Add</button>
+    <p id="result">The answer is:</p>
+    <button id="arrow-diff">click me!</button>
+    <button onclick="this.style.background='red'">change my color</button><br/>
+    <p id="impo"></p>
+    <script >
+       //import message from "./fourth.js";
+        //Errors: try, catch, finally
+      //"use strict";//this can allow the variable hoisting but not undeclared variables
+        function calculate(){
+           // document.writeln(this);
+            var a = document.getElementById("numerator");
+            var b = document.getElementById("denominator");
+            try{
+                res=a.value/b.value;
+                if(b==0) throw "Denominator can't be zero";
+                document.getElementById("result").innerHTML="The answer is:"+res;//i hv to work on this
+            }catch(err){
+                document.getElementById("result").innerHTML = err;
+            }
+            finally{
+            a.value="";//here a is different a.value is different, a is dom element and a.value is just a copy of the value, so we have to use a.value not a.
+            b.value="";
+            }
+        }
+
+        //Range error
+        let num = 2;
+        try{
+            num.toFixed(400);
+        }
+        catch(err){
+            document.writeln(err.name+"<br/>");
+            document.writeln(err.message+"<br/>");
+        }
+
+        //reference error
+        let a;
+        try{
+            a=y+1;//y is not declared
+        }
+        catch(err){
+            document.writeln(err.name+"<br/>");
+            document.writeln(err.message+"<br/>");
+        }
+
+        //Syntax error
+        try{
+            eval("alert('Hello)");
+        }catch(err){
+            document.writeln(err.name+"<br/>");
+            document.writeln(err.message+"<br/>");
+        }
+
+        //type error
+        try{
+            let num = 4;
+            num.toUpperCase();  
+        }catch(err){
+            document.writeln(err.name+"<br/>");
+            document.writeln(err.message+"<br/>");
+        }
+
+        //URI Error
+        try{
+            decodeURI("%5%555");
+        }catch(err){
+            document.writeln(err.name+"<br/>");
+            document.writeln(err.message+"<br/>");
+        }
+
+
+        //Hoisting: using the variables before it is declarred
+        x=b+5;
+        document.writeln(x+"<br/>");
+        var x=0,b=9;//can not hoist the initialization, so nan is the ans
+
+        d=5;
+        document.writeln(d+"<br/>");
+        var d;
+
+
+
+
+        document.writeln("<br/><br/><br/>");
+
+
+        //using the variable without declaring
+        //q=5;
+        //document.writeln(q+"<br/>");
+
+
+        //using object without declaring
+        //obj = {name:"shwetha"};
+        //document.writeln(obj.name+"<br/>");
+
+
+        //deleting a variable
+        let del = 9;
+        document.writeln(del+"<br/>");
+        //delete del;
+        document.writeln(del+"<br/>");
+
+
+        //deleting a function
+        function myfunc(){
+            document.writeln(d+"<br/>");
+        };
+        myfunc();
+        //delete myfunc ;
+        myfunc();
+
+
+        //duplicating the parameter
+        //function add(a,a){};
+
+
+        //using octal number
+        //let k = 010;
+
+
+        //using octal escape characters
+        //let l="\010";
+
+
+        //writing read-only property
+        const obj1 = {};
+        Object.defineProperty(obj1,"name",{value:"shwetha",writable:false});
+        //obj1.name="manu";
+
+
+        //writing to a get-only property
+        const obj2 = {get x() {return 45}};
+        //obj2.x=3.14;
+
+
+        //deleting a undeletable property
+        //delete Object.prototype;
+
+
+        //eval,arguements can not be used as variable
+        //let eval = 3.14;
+
+
+        //with statement is not allowed
+        //with (Math){x=cos(2)};
+
+
+        //we can not create,declare variables using eavl function
+        //eval("o=2");
+        // alert(o);
+
+
+        //this fuctionality
+        // function myfunction(){
+        //     alert(this);
+        // }
+        // myfunction();
+
+        //this keyword
+
+        //1.this in a method
+        let student = {
+            name:"shwetha",
+            marks:100,
+            views:function(){
+                return this.name+" "+this.marks;
+            }
+        }
+        document.writeln(student.views()+"<br/>");
+
+        //this alone
+        let alone = this;
+        document.writeln(alone+"<br/>");
+
+        //this alone in strict mode also show the same
+
+        //this in function
+        function myThis(){
+            let x=this;
+            return x;
+        }
+        document.writeln(myThis()+"<br/>");//in strict mode undefined
+
+
+        //explicit function binding using apply() and call()
+        const person1={
+            callperson2:function(){
+                return this.name+" "+this.age;
+            }
+        }
+        const person2 ={
+            name:"shwetha",
+            age:21,
+        }
+        document.writeln(person1.callperson2.call(person2)+"<br/>");
+
+        let fuction_borrow = person1.callperson2.bind(person2);
+        document.writeln(fuction_borrow()+"<br/>");
+
+        //Arrow function
+        //difference between arrow function and regular fuction
+
+        //using regular function
+        let hi = function(){
+            document.writeln(this+"<br/>");
+        }
+        // window.addEventListener("load",hi);
+        // document.getElementById("arrow-diff").addEventListener("click",hi);
+
+        //using arrow function
+        let arrow = () => {
+            document.writeln(this+"<br/>");
+        }
+        //window.addEventListener("load",arrow);
+        document.getElementById("arrow-diff").addEventListener("click",arrow);
+
+
+        //JS Classes
+        //we should not use hyphens for varibale names
+        class objfactory{
+            constructor(obj_name,obj_year){
+                this.obj_name=obj_name;
+                this.obj_year = obj_year;
+            }
+            age_calculate(){
+                let date = new Date();
+                return date.getFullYear()-this.obj_year;
+            }
+
+            age_take_value(x){
+                return x-this.obj_year;
+            }
+        }
+        const obj3 = new objfactory("first_object",2003);
+        document.writeln(obj3.age_calculate()+"<br/>");
+
+        //using variable in the method
+        let date = new Date();
+        document.writeln(obj3.age_take_value(date.getFullYear())+"<br/>");
+
+        
+        //document.getElementById("impo").innerHTML=message();
+
+        //creating JSON Strings
+        let text = '{"Students":['+
+        '{"first_name":"shwetha","last_name":"madhugiri"},'+
+        '{"first_name":"manu","last_name":"madhugiri"}'+
+        ']}';
+
+        const json_obj=JSON.parse(text);
+
+        document.writeln(json_obj.Students[1].first_name);
+    </script>
+</body>
+</html>
