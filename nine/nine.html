@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nine.css">
+</head>
+<body onload="onload_func()" onunload="unload_func()">
+    <h1 id="heading">Hiiii</h1>
+    <img id="im1" src="img1.jfif" alt="image1" style="width: 20%;height: 20%;" onmouseover="over_func()" onmouseout="mouse_out(this)"/>
+    <p id="text">Recognise the above picture...</p>
+    <form name="form1" method="post" onsubmit="return validate()"> <!-- return will stop the submission and returns the page -->
+        Name:<input id="inp" type="text" name="name" oninput="input_func(this)" onchange="change_func()">
+        <input type="submit" value="submit">
+    </form>
+    <p>Can you spell my name:<input id="my_name" type="text"/></p>
+    <button id="test" onclick="test_res(); this.style.backgroundColor='red'">FriendShip test</button>
+    <p id="res"></p>
+
+    <div id="animate-con">
+        <img id="animate" src="img1.jfif" alt="img"/>
+    </div><br/>
+    <button onclick="animation()">Magic</button>
+    <h1 onclick="this.innerHTML='hi thank you'">HI click me</h1>
+    <p id="onload_event"></p>
+    <p id="multi">Multiple events</p>
+    <p id="mouse" onmousedown="down_func(this)" onmouseup="up_func(this)">GOOD DAY, click here</p>
+
+    <div id="bubble">
+        <p id="bubble_click">click here to change image:<img id="buble_img" src="img1.jfif" alt="img"></p>
+    </div>
+    <p id="window_change"></p>
+    <button id="remove">click here to remove window event handler</button>
+
+    <p id="first_child">Hi</p>
+    <p id="body_element"></p>
+    <p  id="Document_body"></p>
+    <div id="DOM_nodes">
+    </div>
+    <script src="nine.js"></script>
+</body>
+</html>
