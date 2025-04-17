@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="getLocation()">
+    <p id="position"></p>
+    <input type="number" min="5" max="10" id="inp"  required/>
+    <button onclick="check()">Check</button><br/>
+    <button onclick="history()">Time Track</button><br/>
+    Here the count goes: <p id="res"></p>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="strorage()"></button>
+    <p id="external"></p>
+    <script src="webApi.js"></script>
+</body>
+</html>
