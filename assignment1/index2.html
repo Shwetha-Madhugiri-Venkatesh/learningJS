@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body,html{
+            margin: 0;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+        .root{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        #btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+        }
+        #bottle{
+            width: 250px;
+            height: 400px;
+            border: 1px solid black;
+            position: relative;
+        }
+        #inner{
+            background-color: aqua;
+            width: 100%;
+            height: 0;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <div id="input">
+            <p>Enter the number of boxes you want:</p>
+            <input  id="inp" type="number">
+            <button onclick="input_served()">Enter</button>
+        </div>
+        <div id="btns">
+        </div>
+        <div id="bottle" style="width: 250px; height: 400px;">
+            <div id="inner"></div>
+        </div>
+    </div>
+    <script src="index2.js"></script>
+</body>
+</html>
