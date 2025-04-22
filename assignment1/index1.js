@@ -23,7 +23,7 @@ function time(){
             document.getElementById("hour_text").innerHTML=date.getHours();
             document.getElementById("min_text").innerHTML=date.getMinutes();
             document.getElementById("sec_text").innerHTML=date.getSeconds();
-            document.getElementById("am").innerHTML=am_pm.toUpperCase();
+            document.getElementById("day_text").innerHTML=am_pm.toUpperCase();
         }
     }
 }
