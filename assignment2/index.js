@@ -24,22 +24,17 @@ function submit_btn(){
 }
 let obj={};
 let key;
-let count;
-let pre=0;
+
 // let report_text="";
 function count_ele(index){
     document.getElementById(`btn${index}`).style.backgroundColor="red";
-    if(pre!=index){
-        count=0;
-    }
-    count++;
     key=`button${index}`;
+    console.log(obj[key]);
     if(obj[key]==undefined){
-    obj[key]=count;
+    obj[key]=1;
     }else{
-        obj[key]+=count;
+        obj[key]+=1;
     }
-    pre=index;
 }
 function generate(){
     document.getElementById("generate_btn").style.display="none";
