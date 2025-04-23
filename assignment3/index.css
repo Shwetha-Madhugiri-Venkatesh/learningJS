@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: auto;
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 4px;
+}
+#divs{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: coral;
+}
+#divs:nth-child(even){
+    animation-name: anime_even;
+    animation-duration: 2s;
+    transition: 2s;
+}
+#divs:nth-child(odd){
+    animation-name: anime_odd;
+    animation-duration: 2s;
+    transition: 2s;
+}
+@keyframes anime_even {
+    0%{ transform: rotate(-180deg);}
+}
+@keyframes anime_odd{
+    0%{ transform: rotate(180deg);}
+}
+#div_container{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
