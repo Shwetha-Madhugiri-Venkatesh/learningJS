@@ -1,0 +1,30 @@
+
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div{
+    position: relative;
+    width:960px;
+    height: 200px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+.divs{
+    height: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    border-top: none;
+    border-bottom: none;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="dailog_pop()">Show</button>
+    <dialog id="dialog_box">
+        <form>
+            <label>name:</label>
+            <input type="text">
+        </form>
+    </dialog>
+    <script>
+        function dailog_pop(){
+            document.getElementById("dialog_box").showModal();
+        }
+    </script>
+</body>
+</html>
