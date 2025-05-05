@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#div_ele{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    left:45%;
+    top:45%;
+    transition:2s;
+}

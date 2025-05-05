@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 
 html{
     height: 100%;
@@ -10,21 +13,28 @@ body{
     align-items: center;
     justify-content: center;
 }
-div{
+#div_con{
     position: relative;
     width:960px;
     height: 200px;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
-    gap: 4px;
 }
 .divs{
     height: 200px;
     position: absolute;
+    border: 1px solid black;
     display: flex;
     flex-direction: row;
-    gap: 4px;
-    border-top: none;
-    border-bottom: none;
+    z-index: auto;
+}
+.divs-right{
+    height: 200px;
+    position: absolute;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    z-index: auto;
+    right: 0;
 }

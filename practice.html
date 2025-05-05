@@ -9,6 +9,7 @@
             width: 400px;
             position: relative;
             height: 200px;
+            border: 2px solid black;
             background-color: aqua;
         }
         #inner{
@@ -21,8 +22,14 @@
     </style>
 </head>
 <body>
-    <div id="outer">
+    <div id="outer" onclick="border(this)">
         <div id="inner"></div>
     </div>
+    <script>
+        function border(obj){
+           document.getElementById("outer").setAttribute("style","border-style:none");
+        }
+        
+    </script>
 </body>
 </html>
