@@ -28,8 +28,17 @@
     <script>
         function border(obj){
            document.getElementById("outer").setAttribute("style","border-style:none");
+           let random = Math.floor(Math.random()*100)+50;
+           console.log(random);
         }
-        
+        //reduceRight function for finding out whether the string is palindrome or not
+        let name="aabbaa";
+        let str_arr=Array.from(name);
+        let rev = str_arr.reduceRight(func);
+        function func(rev,value){
+            return rev+value;
+        }
+        console.log(name == rev);
     </script>
 </body>
 </html>

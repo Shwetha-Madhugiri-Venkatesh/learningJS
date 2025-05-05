@@ -9,11 +9,11 @@ let div_ele = document.getElementById("div_ele");
 //     div_ele.setAttribute("style",`transform: translate(${-width}px,${-height}px) rotate(${degree}deg);transition:2s`);
 // }
 function animate_div(){
-    let window_width = window.screen.availWidth;
-    let window_height = window.screen.availHeight;
-    console.log(window_width,window_height);
-    let width = Math.floor(Math.random()*600)-100;
-    let height = Math.floor(Math.random()*400)-100;
+    let window_x = window.screen.availWidth-100;
+    let window_y = window.screen.availHeight-100;
+    console.log(window_x,window_y);
+    let x = Math.floor(Math.random()*window_x)-window_x/2;
+    let y = Math.floor(Math.random()*window_y)-window_y/2;
     let degree = Math.floor(Math.random()*360)+180;
-    div_ele.setAttribute("style",`transform: translate(${width}px,${height}px) rotate(${degree}deg);`);
+    div_ele.setAttribute("style",`transform: translate(${x}px,${y}px) rotate(${degree}deg);`);
 }
