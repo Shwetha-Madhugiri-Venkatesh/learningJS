@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 400px;
+            position: relative;
+            height: 200px;
+            border: 2px solid black;
+            background-color: aqua;
+        }
+
+        #inner {
+            width: 200px;
+            position: absolute;
+            height: 200px;
+            background-color: blue;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer" onclick="border(this)">
+        <div id="inner"></div>
+    </div>
+    <script>
+        function border(obj) {
+            document.getElementById("outer").setAttribute("style", "border-style:none");
+            let random = Math.floor(Math.random() * 100) + 50;
+            console.log(random);
+        }
+        //reduceRight function for finding out whether the string is palindrome or not
+        let name = "aabbaa";
+        let str_arr = Array.from(name);
+        let rev = str_arr.reduceRight(func);
+        function func(rev, value) {
+            return rev + value;
+        }
+        console.log(name == rev);
+
+        
+        let sentence = "hey! hey! wait";
+        let obj = {};
+        let splited = sentence.split(" ");
+
+        splited.forEach((value) => {
+            if (obj[value]) {
+                obj[value] += 1;
+            } else {
+                obj[value] = 1;
+            }
+        });
+
+        let str = "llheo";
+       
+       for(let x=0;x<str.length;x++){
+            let new_str = str.replace(str[x],"");
+            if(new_str.includes(str[x])){
+                continue;
+            }else{
+                console.log(str[x]);
+                break;
+            }
+       }
+
+       for(let x=0;x<arr.length;x++){
+        let flag = false;
+        for(let y =0;y<arr.length;y++){
+            if(y==x){
+                continue;
+            }
+            if(arr[x]==arr[y]){
+                flag=true;
+            }
+        }
+        if(flag){
+            continue;
+        }else{
+            console.log(arr[x]);
+            break;
+        }
+       }
+    </script>
+</body>
+
+</html>
