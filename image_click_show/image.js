@@ -12,10 +12,8 @@ dots.appendChild(popup);
 
 for(let x=0;x<image_ele.length;x++){
     image_ele[x].addEventListener("mouseover",()=>dot_popup(x));
-    image_ele[x].addEventListener("mouseout",()=>dot_popout());
 }
 function dot_popup(index){
-    img_div.setAttribute("src",``);
     popup.style.display="none";
     im_con[index].appendChild(dots);
     im_con[index].style.position="relative";
@@ -26,9 +24,6 @@ function dot_popup(index){
     dots.setAttribute("onclick",`show_popup(${index})`)
     console.log(curr);
     dots.style.left=`${curr+160}px`;
-}
-function dot_popout(){
-    dots.style.display="none";
 }
 function show_popup(index){
     popup.setAttribute("onclick",`show_image(${index})`)
