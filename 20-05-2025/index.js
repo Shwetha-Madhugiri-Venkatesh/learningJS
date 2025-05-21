@@ -53,4 +53,4 @@ const person = {
     console.log(person.firstName + " " + person.lastName);
   }
 }
-setTimeout(person.display,1000);
+setTimeout(person.display(),1000);
